@@ -1,0 +1,27 @@
+{
+  "name": "ludum-duvida",
+  "version": "1.0.0",
+  "description": "Microsserviço responsável por pesquisar dúvida no Stack Overflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start-dev": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/botludum/Ludum-Duvida.git"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "Ludum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/botludum/Ludum-Duvida/issues"
+  },
+  "homepage": "https://github.com/botludum/Ludum-Duvida#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
