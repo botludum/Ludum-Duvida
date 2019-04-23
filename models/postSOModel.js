@@ -6,10 +6,8 @@ var postSOSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    answer: {
-        type: String,
-        required: true
-    },
+    title: [{}],
+    link: [{}],
     create_date: {
         type: Date,
         default: Date.now

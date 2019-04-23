@@ -21,7 +21,8 @@ exports.index = function (req, res) {
 exports.new = function (req, res) {
     console.log("duvida",postSO)
     postSO.question = req.body.question;
-    postSO.answer = req.body.answer;
+    postSO.title = req.body.title;
+    postSO.link = req.body.link;
 
     postSO.save(function (err) {
         res.json({
