@@ -1,6 +1,4 @@
-// Import Post model
 var PostSO = require('../models/postSOModel');
-var postSO = new PostSO();
 
 exports.index = function (req, res) {
     PostSO.get(function (err, posts) {
@@ -19,17 +17,17 @@ exports.index = function (req, res) {
 };
 
 exports.new = function (req, res) {
-    console.log("duvida",postSO)
-    postSO.question = req.body.question;
-    postSO.title = req.body.title;
-    postSO.link = req.body.link;
-
+    var postSO = new PostSO(req.body);
+    console.log(req.body);
     postSO.save(function (err) {
+        if (err)
+            res.send(err);
         res.json({
             message: 'Nova dúvida criada!',
             data: postSO
         });
     });
+    // postSO.save();
 };
 
 exports.view = function (req, res) {

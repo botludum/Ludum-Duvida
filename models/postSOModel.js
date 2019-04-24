@@ -1,20 +1,23 @@
 var mongoose = require('mongoose');
 
 
+var answerSchema = mongoose.Schema({
+    title: String,
+    link: String
+});
+
 var postSOSchema = mongoose.Schema({
     question: {
         type: String,
         required: true
     },
-    title: [{}],
-    link: [{}],
+    answer: [answerSchema],
     create_date: {
         type: Date,
         default: Date.now
     }
 });
 
-// Export Post model
 var PostSO = module.exports = mongoose.model('postSO', postSOSchema);
 
 module.exports.get = function (callback, limit) {
