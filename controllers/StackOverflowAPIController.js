@@ -16,24 +16,34 @@ var postRequest = {
 
 // Get results for a different website within the stackexchange network
 exports.pesquisa = function (req, res) {
-  var postSO = new PostSO(req.body);
-  bodyFilter.intitle = req.params.test
-  postRequest.question = req.params.test
+  bodyFilter.intitle = req.params.pergunta;
+  postRequest.question = req.params.pergunta;
+  postRequest.answer = [];
 
   request('https://api.stackexchange.com/2.2/search?site=stackoverflow',
   {
     gzip: true,
     json: true,
     body: bodyFilter
-  }, (err, res, body) => {
+  }, (err, res2, body) => {
   if (err) { return console.log(err); }
 
   for (i in body.items){
     postRequest.answer.push({
       "title": body.items[i].title,
       "link": body.items[i].link
-    })
+    });
   }
-  console.log(postRequest);
+  var postSO = new PostSO(postRequest);
+  postSO.save(function (err, res2) {
+      if (err) {
+        res.send(err);
+      }
+      res.json({
+          message: 'Nova dúvida criada!',
+          data: postSO
+      });
+  });
 });
+  // postSO.save();
 }

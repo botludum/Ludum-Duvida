@@ -11,18 +11,17 @@ router.get('/', function (req, res) {
 
 // Import contact controller
 var postSOController = require('../controllers/postSOController');
-var stackOverflowController = require('../controllers/StackOverflowAPIController')
+var stackOverflowController = require('../controllers/StackOverflowAPIController');
 
 // Contact routes
 router.route('/duvidas')
-    .get(postSOController.index)
-    .post(postSOController.new);
+    .get(postSOController.index);
 
 router.route('/duvidas/:duvida_id')
-    .get(postSOController.view)
+    .get(postSOController.view);
 
-router.route('/duvidas/pesquisar/:test')
-    .get(stackOverflowController.pesquisa)
+router.route('/duvidas/pesquisar/:pergunta')
+    .get(stackOverflowController.pesquisa);
 
 // Export API routes
 module.exports = router;
