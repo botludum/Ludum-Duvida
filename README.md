@@ -13,6 +13,29 @@ Esse microsserviço é responsável por pesquisar a dúvida do usuário no Stack
 ## Sobre o projeto
 <p align="justify">O Ludum é um chatbot que propõe-se a auxiliar em diversos aspectos as pessoas que desejam desenvolver jogos utilizando a biblioteca PyGame.</p>
 
+## Como desenvolver
+<p align="justify">Neste microsserviço foi utilizado NodeJS com express e MongoDB (Mongoose). Tudo que é necessário para o desenvolvimento está dentro do docker, então, para desenvolver, deve-se seguir os seguintes passos: </p>
+
+1. Modifique a linha 20 do arquivo index.js localizado na pasta raíz do projeto de:
+```javascript
+mongoose.connect(process.env.MONGODB_URI);
+```
+para:
+```javascript
+mongoose.connect('mongodb://localhost/ludum-duvida');
+```
+
+2. Após, abra um terminal na pasta raíz do projeto e execute o comando:
+```bash
+docker build -t guilhermesiqueira/ludum-duvida .
+```
+
+3. Em seguida:
+```bash
+docker-compose u
+```
+Pronto, o seu ambiente de desenvolvimento está pronto!
+
 ## Quero saber mais!
 <p align="justify">Para mais informações e maiores esclarecimentos, visite o nosso repositório principal, 
 clicando <a href="https://github.com/fga-eps-mds/2019.1-Ludum">aqui</a></p>
