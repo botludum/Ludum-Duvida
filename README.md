@@ -39,3 +39,195 @@ Pronto, o seu ambiente de desenvolvimento está pronto!
 ## Quero saber mais!
 <p align="justify">Para mais informações e maiores esclarecimentos, visite o nosso repositório principal, 
 clicando <a href="https://github.com/fga-eps-mds/2019.1-Ludum">aqui</a></p>
+
+## Documentação da API
+- [Plataforma Unificada de Metodologia Ativa](#plataforma-unificada-de-metodologia-ativa)
+  - [Base URL](#base-url)
+  - [Endpoints](#endpoints)
+      - [`POST /usuario`](#post-usuario)
+      - [`GET /usuario:id`](#get-usuarioid)
+      - [`GET /usuario`](#get-usuario)
+      
+## Base URL
+A URL para qualquer requisição possui a url base **api**: `localhost:8080/api/{resource}`
+## Endpoints
+Os endpoints são:
+
+### `/duvidas`
+São os endpoints relacionados às duvidas pesquisadas.
+
+#### `GET /duvidas/:{question}`
+
+| Parametro             | Tipo    | Descricao                                            | Obrigatorio? |
+| --------------------- | ------- | ---------------------------------------------------- | ------------ |
+| question                  | string  | Comando digitado pelo usuário no telegram        | sim          |
+
+- Exemplo de JSON retornado:
+```json
+{
+    "status": "success",
+    "message": "Posts retrieved successfully",
+    "data": [
+        {
+            "_id": "5cbfbe32de8e8b0024c7e011",
+            "question": "How to use Rasa?",
+            "answer": [
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e016",
+                    "title": "How to use RASA NLU with RASA CORE?",
+                    "link": "https://stackoverflow.com/questions/48700554/how-to-use-rasa-nlu-with-rasa-core"
+                },
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e015",
+                    "title": "How to use rasa action_restart",
+                    "link": "https://stackoverflow.com/questions/53715698/how-to-use-rasa-action-restart"
+                },
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e014",
+                    "title": "RASA how to use Japanese (Tokennization-Mecab)",
+                    "link": "https://stackoverflow.com/questions/53001497/rasa-how-to-use-japanese-tokennization-mecab"
+                },
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e013",
+                    "title": "How to use my own NLU module completely with Rasa Core?",
+                    "link": "https://stackoverflow.com/questions/55368233/how-to-use-my-own-nlu-module-completely-with-rasa-core"
+                },
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e012",
+                    "title": "How to use Hindi Model in RASA NLU?",
+                    "link": "https://stackoverflow.com/questions/52586211/how-to-use-hindi-model-in-rasa-nlu"
+                }
+            ],
+            "create_date": "2019-04-24T01:38:58.246Z",
+            "__v": 0
+        }
+```
+- Retorno: `HTTP Status 200` e json retornado e armazenado no banco.
+
+#### `GET /duvidas/:{id}`
+Retorna apenas uma dúvida
+
+| Parametro             | Tipo    | Descricao                                            | Obrigatorio? |
+| --------------------- | ------- | ---------------------------------------------------- | ------------ |
+| id                  | string  | id da pergunta       | sim          |
+
+- Exemplo de JSON retornado:
+```json
+{
+    "status": "success",
+    "message": "Carregando detalhes da dúvida",
+    "data": [
+        {
+            "_id": "5cbfbe32de8e8b0024c7e011",
+            "question": "How to use Rasa?",
+            "answer": [
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e016",
+                    "title": "How to use RASA NLU with RASA CORE?",
+                    "link": "https://stackoverflow.com/questions/48700554/how-to-use-rasa-nlu-with-rasa-core"
+                },
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e015",
+                    "title": "How to use rasa action_restart",
+                    "link": "https://stackoverflow.com/questions/53715698/how-to-use-rasa-action-restart"
+                },
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e014",
+                    "title": "RASA how to use Japanese (Tokennization-Mecab)",
+                    "link": "https://stackoverflow.com/questions/53001497/rasa-how-to-use-japanese-tokennization-mecab"
+                },
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e013",
+                    "title": "How to use my own NLU module completely with Rasa Core?",
+                    "link": "https://stackoverflow.com/questions/55368233/how-to-use-my-own-nlu-module-completely-with-rasa-core"
+                },
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e012",
+                    "title": "How to use Hindi Model in RASA NLU?",
+                    "link": "https://stackoverflow.com/questions/52586211/how-to-use-hindi-model-in-rasa-nlu"
+                }
+            ],
+            "create_date": "2019-04-24T01:38:58.246Z",
+            "__v": 0
+        }
+```
+- Retorno: `HTTP Status 200` e json retornado e armazenado no banco.
+
+#### `GET /duvidas/`
+Retorna todas as dúvidas pesquisadas
+
+- Exemplo de JSON retornado:
+```json
+{
+    "status": "success",
+    "message": "Posts retrieved successfully",
+    "data": [
+        {
+            "_id": "5cbfbe32de8e8b0024c7e011",
+            "question": "How to use Rasa?",
+            "answer": [
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e016",
+                    "title": "How to use RASA NLU with RASA CORE?",
+                    "link": "https://stackoverflow.com/questions/48700554/how-to-use-rasa-nlu-with-rasa-core"
+                },
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e015",
+                    "title": "How to use rasa action_restart",
+                    "link": "https://stackoverflow.com/questions/53715698/how-to-use-rasa-action-restart"
+                },
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e014",
+                    "title": "RASA how to use Japanese (Tokennization-Mecab)",
+                    "link": "https://stackoverflow.com/questions/53001497/rasa-how-to-use-japanese-tokennization-mecab"
+                },
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e013",
+                    "title": "How to use my own NLU module completely with Rasa Core?",
+                    "link": "https://stackoverflow.com/questions/55368233/how-to-use-my-own-nlu-module-completely-with-rasa-core"
+                },
+                {
+                    "_id": "5cbfbe32de8e8b0024c7e012",
+                    "title": "How to use Hindi Model in RASA NLU?",
+                    "link": "https://stackoverflow.com/questions/52586211/how-to-use-hindi-model-in-rasa-nlu"
+                }
+            ],
+            "create_date": "2019-04-24T01:38:58.246Z",
+            "__v": 0
+        },
+        {
+            "_id": "5cc8afbb85979700243ef73f",
+            "question": ":python",
+            "answer": [
+                {
+                    "_id": "5cc8afbb85979700243ef744",
+                    "title": "List of string &quot;integers&quot; to integers accounting for &quot;non-numeric&quot; strings Python",
+                    "link": "https://stackoverflow.com/questions/55927965/list-of-string-integers-to-integers-accounting-for-non-numeric-strings-pytho"
+                },
+                {
+                    "_id": "5cc8afbb85979700243ef743",
+                    "title": "Chess in Python without any game library?",
+                    "link": "https://stackoverflow.com/questions/55928152/chess-in-python-without-any-game-library"
+                },
+                {
+                    "_id": "5cc8afbb85979700243ef742",
+                    "title": "How can I deploy my API on IBM Cloud developed in Python and swagger?",
+                    "link": "https://stackoverflow.com/questions/55928217/how-can-i-deploy-my-api-on-ibm-cloud-developed-in-python-and-swagger"
+                },
+                {
+                    "_id": "5cc8afbb85979700243ef741",
+                    "title": "Python pandas dataframe to html -- highlight entire column based on header value",
+                    "link": "https://stackoverflow.com/questions/55387873/python-pandas-dataframe-to-html-highlight-entire-column-based-on-header-value"
+                },
+                {
+                    "_id": "5cc8afbb85979700243ef740",
+                    "title": "Python, convert string which contains escape characters to a dict",
+                    "link": "https://stackoverflow.com/questions/55928207/python-convert-string-which-contains-escape-characters-to-a-dict"
+                }
+            ],
+            "create_date": "2019-04-30T20:27:39.712Z",
+            "__v": 0
+        }
+    ]
+}
+```
