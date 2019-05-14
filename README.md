@@ -44,19 +44,19 @@ clicando <a href="https://github.com/fga-eps-mds/2019.1-Ludum">aqui</a></p>
 - [Plataforma Unificada de Metodologia Ativa](#plataforma-unificada-de-metodologia-ativa)
   - [Base URL](#base-url)
   - [Endpoints](#endpoints)
-      - [`POST /usuario`](#post-usuario)
-      - [`GET /usuario:id`](#get-usuarioid)
-      - [`GET /usuario`](#get-usuario)
+      - [`GET /duvidas/pesquisar/:{question}`](#post-duvida)
+      - [`GET /duvidas/:{id}`](#get-duvidaid)
+      - [`GET /usuario`](#get-duvidas)
       
 ## Base URL
-A URL para qualquer requisição possui a url base **api**: `localhost:8080/api/{resource}`
+A URL para qualquer requisição possui a url base **api**: `https://ludum-duvidas.herokuapp.com/api/{resource}`
 ## Endpoints
 Os endpoints são:
 
 ### `/duvidas`
 São os endpoints relacionados às duvidas pesquisadas.
 
-#### `GET /duvidas/:{question}`
+#### `GET /duvidas/pesquisar/:{question}`
 
 | Parametro             | Tipo    | Descricao                                            | Obrigatorio? |
 | --------------------- | ------- | ---------------------------------------------------- | ------------ |
