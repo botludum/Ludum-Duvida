@@ -32,7 +32,7 @@ docker build -t guilhermesiqueira/ludum-duvida .
 
 3. Em seguida:
 ```bash
-docker-compose u
+docker-compose up
 ```
 Pronto, o seu ambiente de desenvolvimento está pronto!
 
