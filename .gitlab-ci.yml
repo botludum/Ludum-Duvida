@@ -58,6 +58,6 @@ deploy-prod:
             --rancher-secret $RANCHER_SECRET_KEY
             --environment $RANCHER_ENVIRONMENT
             --stack $RANCHER_STACK
-            --service ludum"
+            --service ludum-duvida"
   only:
     - /master/
